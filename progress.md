@@ -66,9 +66,10 @@ Topics to reinforce over time:
 
 #### Lesson 02 — Hardware Fundamentals
 
-- **Status:** IN PROGRESS — learning content and hardware discovery lab completed; final practical exam not yet submitted.
+- **Status:** PASSED
 - **Knowledge checks:** 3/3 on CPU/RAM/storage; 5/5 on motherboard/NIC/ECC/RAID/Secure Boot.
-- **Hands-on lab:** motherboard, network adapters, and physical storage inspected with PowerShell.
+- **Hands-on lab:** completed — motherboard, network adapters, and physical storage inspected with PowerShell.
+- **Final practical exam:** 5/5 (all five scenarios answered correctly).
 
 Sanitized observations:
 - Motherboard: ASUSTeK COMPUTER INC., X512UA, version 1.0.
@@ -79,13 +80,13 @@ Sanitized observations:
 
 Topics covered: CPU, cores/threads, RAM and volatile memory, HDD vs SSD, motherboard, NIC, IP vs MAC, physical vs virtual interfaces, ECC RAM, RAID, redundant power, remote management, physical security, BitLocker, Secure Boot, TPM, and firmware security.
 
-**Final practical exam: PENDING.** Do not mark Lesson 02 as passed until the learner completes the five-scenario exam and any required remediation.
+**Final practical exam: PASSED — 5/5.** All five scenarios were answered correctly.
 
 ## Roadmap
 
 | Stage | Focus | Status |
 |---|---|---|
-| 1 | IT Infrastructure Fundamentals | In progress |
+| 1 | IT Infrastructure Fundamentals | In progress — Lesson 01 and Lesson 02 passed |
 | 2 | System & Infrastructure Administration: Linux, Windows Server, AD, DNS, firewalls | Not started |
 | 3 | Cybersecurity: fundamentals, hardening, IAM, vulnerabilities, SIEM | Not started |
 | 4 | Programming & Automation: Python, Bash, PowerShell, Git/GitHub | Not started |
@@ -95,7 +96,7 @@ Topics covered: CPU, cores/threads, RAM and volatile memory, HDD vs SSD, motherb
 
 ## Next lesson
 
-**Module 1 — Lesson 02: Hardware Fundamentals**
+**Module 1 — Lesson 03: Operating Systems Fundamentals**
 
 Planned topics:
 - CPU — Central Processing Unit
@@ -124,6 +125,6 @@ A sustainable target is 8–10 hours per week:
 
 ## Continuation instructions
 
-When continuing this journey, read this file and the latest lesson notes first. Resume at **Module 1, Lesson 02 — Hardware Fundamentals**. Keep the beginner-friendly pace, explain technical English terms in Russian, assign practical exercises, and assess understanding before advancing.
+When continuing this journey, read this file and the latest lesson notes first. Resume at **Module 1, Lesson 03 — Operating Systems Fundamentals**. Keep the beginner-friendly pace, explain technical English terms in Russian, assign practical exercises, and assess understanding before advancing.
 
 Do not claim professional seniority based on course completion alone; professional level also requires sustained real-world engineering experience.
