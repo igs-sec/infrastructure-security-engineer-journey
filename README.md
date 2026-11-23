@@ -14,9 +14,8 @@ A structured, hands-on learning journey from beginner level toward Infrastructur
 
 - **Current stage:** Module 1 — IT Infrastructure Fundamentals
 - **Completed:** Lesson 01 — What Is IT Infrastructure? (theory 10/10; practical 5/5)
-- **In progress:** Lesson 02 — Hardware Fundamentals (hardware discovery lab completed; final practical exam pending)
-- **Assessment:** Theory 10/10; practical 5/5
-- **Current lesson:** Lesson 02 — Hardware Fundamentals
+- **Completed:** Lesson 02 — Hardware Fundamentals (knowledge checks 3/3 and 5/5; PowerShell hardware discovery lab; final practical exam 5/5)
+- **Current lesson:** Lesson 03 — Operating Systems Fundamentals
 
 See [progress.md](progress.md) for the learning roadmap and current status.
 
