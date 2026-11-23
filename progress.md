@@ -1,6 +1,6 @@
 # Learning Progress
 
-_Last updated: 2026-11-21_
+_Last updated: 2026-11-23_
 
 ## Learning profile
 
@@ -63,6 +63,23 @@ Topics to reinforce over time:
 - Vulnerability management
 - Backup versus snapshot, including restore testing
 - Modern password guidance, MFA, and account protection
+
+#### Lesson 02 — Hardware Fundamentals
+
+- **Status:** IN PROGRESS — learning content and hardware discovery lab completed; final practical exam not yet submitted.
+- **Knowledge checks:** 3/3 on CPU/RAM/storage; 5/5 on motherboard/NIC/ECC/RAID/Secure Boot.
+- **Hands-on lab:** motherboard, network adapters, and physical storage inspected with PowerShell.
+
+Sanitized observations:
+- Motherboard: ASUSTeK COMPUTER INC., X512UA, version 1.0.
+- Physical Wi-Fi NIC: Intel(R) Dual Band Wireless-AC 8265; Up.
+- Virtual interface: Happ Tunnel; Up. Reported 100 Gbps is an interface-reported link speed, not proof of actual internet throughput.
+- Bluetooth PAN: disconnected.
+- Storage: SanDisk SD9SN8W256G1102, SSD, 256,060,514,304 bytes (about 256 GB decimal / 238.5 GiB), Windows HealthStatus Healthy.
+
+Topics covered: CPU, cores/threads, RAM and volatile memory, HDD vs SSD, motherboard, NIC, IP vs MAC, physical vs virtual interfaces, ECC RAM, RAID, redundant power, remote management, physical security, BitLocker, Secure Boot, TPM, and firmware security.
+
+**Final practical exam: PENDING.** Do not mark Lesson 02 as passed until the learner completes the five-scenario exam and any required remediation.
 
 ## Roadmap
 
