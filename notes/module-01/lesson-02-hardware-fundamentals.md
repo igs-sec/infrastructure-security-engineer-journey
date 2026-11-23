@@ -1,8 +1,8 @@
 # Lesson 02 — Hardware Fundamentals
 
 - **Module:** 1 — IT Infrastructure Fundamentals
-- **Status:** IN PROGRESS
-- **Final practical exam:** PENDING
+- **Status:** PASSED
+- **Final practical exam:** PASSED — 5/5
 
 ## Core components
 - **CPU (Central Processing Unit):** executes program instructions and performs calculations. Terms: core, thread, clock speed, GHz.
@@ -68,7 +68,12 @@ Healthy is a positive status, not a guarantee against future failure and not pro
 - Motherboard/NIC/ECC/RAID/Secure Boot: **5/5**
 
 ## Final practical exam
-**Pending.** The learner has not yet submitted answers to the five-scenario exam. Keep this lesson IN PROGRESS until reviewed and passed.
+**Passed — 5/5.** All five scenarios were answered correctly:
+1. Investigate processes and workload when CPU usage is high.
+2. Recognize likely RAM pressure when several VMs run slowly on an 8 GB system.
+3. Use BitLocker to protect data at rest on a lost corporate laptop.
+4. Investigate an unfamiliar virtual NIC by checking its purpose, owning software, and network configuration.
+5. Interpret `HealthStatus = Healthy` as the current reported health state, not a guarantee against future failure.
 
 ## Next step
-Complete the five-scenario practical exam. Only after passing should Lesson 02 be marked PASSED and Lesson 03 started.
+Lesson 02 is complete. Next: Module 1 — Lesson 03, Operating Systems Fundamentals.
