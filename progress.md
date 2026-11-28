@@ -19,7 +19,7 @@ _Last updated: 2026-11-28_
 - RAM: 8 GB
 - Storage: 256 GB SSD
 - Virtualization: firmware virtualization support and SLAT confirmed
-- WSL installation: WSL package 3.0.5 installed; VirtualMachinePlatform enabled successfully. A system restart is pending. Ubuntu installation/first launch and WSL 2 verification are not yet confirmed.
+- WSL: Ubuntu installed and verified as WSL 2; first-run Linux user `igs` created. Ubuntu 26.04.1 LTS is running successfully.
 
 ### Lab constraints
 
@@ -88,7 +88,7 @@ Topics covered: CPU, cores/threads, RAM and volatile memory, HDD vs SSD, motherb
 - **Knowledge check:** 5/5.
 - **Windows PowerShell lab:** completed.
 - **Concept review:** 3/3 correct.
-- **Linux/WSL lab:** setup in progress; restart pending.
+- **Linux/WSL lab:** WSL 2 and Ubuntu setup verified; basic system discovery and permissions inspection completed; permissions mini-exam round 1: 8/8. A new, different mini-exam has been presented and is awaiting answers.
 
 Topics covered so far:
 - Operating System (OS) and its role between hardware, applications, and users.
@@ -104,13 +104,25 @@ Lab observations:
 - `Get-Service` showed both Running and Stopped services. A Stopped service is not automatically a fault; some services start only when needed.
 - Learner correctly explained that an unfamiliar process must be investigated before classifying it as malware, that a stopped service is not necessarily a problem, and that a process differs from a service.
 
-WSL setup:
-- Ran `wsl --status`: WSL was not installed at that time.
-- Ran `wsl --install -d Ubuntu`.
-- WSL package 3.0.5 installation completed successfully.
-- Windows feature VirtualMachinePlatform was enabled successfully.
-- Windows requested a restart for changes to take effect.
-- **Next action after restart:** run `wsl --status` and `wsl --list --verbose`; complete Ubuntu first-launch setup if prompted; verify the distribution is using WSL 2. Do not mark Ubuntu as installed/ready until verified.
+WSL and Ubuntu setup:
+- Installed Ubuntu using `wsl --install -d Ubuntu`.
+- `wsl --list --verbose` confirmed `Ubuntu`, WSL version 2. Its `Stopped` state when not in use is normal.
+- First launch completed; Linux username `igs` was created. Password was set successfully (never store or publish it).
+- `whoami` returned `igs`; `pwd` returned `/home/igs`; `uname -a` confirmed the Microsoft WSL2 Linux kernel.
+- `cat /etc/os-release` identified Ubuntu 26.04.1 LTS (`resolute`).
+
+Linux discovery and permissions lab:
+- Completed `id`, `cat /etc/os-release`, `ls -la`, `df -h`, `free -h`, and `ps aux | head`.
+- `id` showed a non-root user `igs` who belongs to the `sudo` group.
+- `ls -la` showed normal home-directory entries, including hidden dotfiles.
+- `df -h` showed the WSL virtual root filesystem and the Windows C: mount at `/mnt/c`; the WSL virtual disk size must not be interpreted as the laptop's physical SSD capacity.
+- `free -h` showed the memory available to the WSL environment, which is not necessarily the full physical RAM installed in Windows.
+- Process output showed expected WSL/system services; no malware conclusion was drawn from process names alone.
+- `groups` returned `igs adm cdrom sudo dip plugdev users`.
+- `ls -ld ~` returned permissions `drwxr-x---` (750): owner `rwx`, group `r-x`, others no access.
+- `stat -c '%A %a %U:%G %n' ~/.bashrc ~/.profile` returned `644` for both files: owner read/write, group read, others read.
+- Learned the distinction between file and directory permissions; `x` on a directory means search/traverse, while `x` on a regular file means execute.
+- Previous Linux Files & Permissions mini-exam: 8/8 correct. A fresh follow-up quiz has been presented; its answers have not yet been submitted.
 
 ## Roadmap
 
@@ -126,12 +138,11 @@ WSL setup:
 
 ## Next action
 
-Resume **Module 1 — Lesson 03: Operating Systems Fundamentals** after restarting the computer:
-1. Verify WSL with `wsl --status`.
-2. Verify distributions with `wsl --list --verbose`.
-3. Finish Ubuntu first-run setup if required.
-4. Verify WSL 2, then begin basic Linux terminal commands: `pwd`, `ls`, `whoami`, `uname -a`, and `cd`.
-5. Continue the lesson's Linux lab and final assessment. Do not advance to Lesson 04 until Lesson 03 is passed.
+Continue **Module 1 — Lesson 03: Operating Systems Fundamentals**:
+1. Complete the newly presented Linux Files & Permissions mini-exam and review the result.
+2. Perform a safe hands-on lab in a dedicated directory under `/home/igs`, practicing `mkdir`, file creation, `ls -l`, and `chmod`.
+3. Complete the Lesson 03 final practical assessment.
+4. Do not advance to Lesson 04 until Lesson 03 is passed.
 
 ## Weekly study rhythm
 
@@ -151,6 +162,6 @@ A sustainable target is 8–10 hours per week:
 
 ## Continuation instructions
 
-When continuing this journey, read this file and the latest lesson notes first. Resume at **Module 1, Lesson 03 — Operating Systems Fundamentals**, specifically WSL/Ubuntu verification after the pending restart. Keep the beginner-friendly pace, explain technical English terms in Russian, assign practical exercises, and assess understanding before advancing.
+When continuing this journey, read this file and the latest lesson notes first. Resume at **Module 1, Lesson 03 — Operating Systems Fundamentals**, with Ubuntu on WSL 2 already installed and verified. The Linux discovery/permissions inspection lab is complete; the latest fresh permissions quiz is awaiting the learner's answers. Continue with that quiz, then a safe `chmod` lab and the Lesson 03 final practical assessment. Keep the beginner-friendly pace, explain technical English terms in Russian, and assess understanding before advancing.
 
 Do not claim professional seniority based on course completion alone; professional level also requires sustained real-world engineering experience.
