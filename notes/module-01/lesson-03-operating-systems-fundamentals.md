@@ -5,6 +5,9 @@
 - **Knowledge check:** 5/5
 - **Windows PowerShell lab:** completed
 - **Concept review:** 3/3
+- **Linux/WSL setup:** Ubuntu 26.04.1 LTS installed and verified on WSL 2
+- **Linux discovery lab:** completed
+- **Linux permissions review:** first mini-exam 8/8; a new follow-up mini-exam is awaiting answers
 - **Final practical exam:** pending
 
 ## What is an Operating System?
@@ -70,41 +73,52 @@ Observations:
 - `Get-Service` displayed services in both Running and Stopped states. Stopped does not automatically mean broken.
 - No changes were made to processes or services.
 
-## WSL and Ubuntu setup — pending reboot
+## WSL and Ubuntu setup — completed
 
-Initial check:
-```powershell
-wsl --status
+- Installed Ubuntu using `wsl --install -d Ubuntu`.
+- `wsl --list --verbose` confirmed Ubuntu is using WSL 2. A `Stopped` state when the distribution is not active is normal.
+- Completed first-run provisioning and created the Linux user `igs`.
+- `whoami` returned `igs`; `pwd` returned `/home/igs`.
+- `uname -a` confirmed the Microsoft WSL2 Linux kernel.
+- `cat /etc/os-release` identified Ubuntu 26.04.1 LTS (`resolute`).
+- The Linux password is intentionally not recorded in this repository.
+
+## Linux discovery and permissions lab — completed
+
+Commands practiced:
+
+```bash
+whoami
+pwd
+uname -a
+id
+cat /etc/os-release
+ls -la
+df -h
+free -h
+ps aux | head
+groups
+ls -ld ~
+stat -c '%A %a %U:%G %n' ~/.bashrc ~/.profile
 ```
-Reported that WSL was not installed.
 
-Installation command:
-```powershell
-wsl --install -d Ubuntu
-```
+Observations and concepts:
+- The account `igs` is a regular non-root user and belongs to the `sudo` group.
+- Ubuntu home-directory listing included hidden dotfiles (names beginning with a dot).
+- `df -h` showed the WSL virtual root filesystem and Windows C: mounted at `/mnt/c`. The virtual disk size is not the physical SSD capacity.
+- `free -h` reports memory visible to WSL, not necessarily all physical RAM in Windows.
+- Process listing showed expected WSL/system processes; unfamiliar process names should be investigated, not automatically labelled malware.
+- `ls -ld ~` showed `drwxr-x---` (750): owner has rwx, group has r-x, others have no permissions.
+- `.bashrc` and `.profile` both showed `644` (`-rw-r--r--`): owner read/write, group and others read.
+- For a regular file, `x` means execute; for a directory, `x` means search/traverse. Directory `r` and `w` govern listing and modifying directory entries, subject to other access controls.
+- Linux permissions use `r=4`, `w=2`, `x=1`; for example, `750` means `rwxr-x---` and `644` means `rw-r--r--`.
 
-Observed installation output:
-- WSL package version 3.0.5 installed successfully.
-- Windows optional feature `VirtualMachinePlatform` was enabled successfully through DISM.
-- The system requested a restart for changes to take effect.
-- Restart has not yet been completed at the time of this note.
-- Ubuntu distribution installation/first launch and WSL 2 status are **not yet verified**.
-
-After restarting, run:
-
-```powershell
-wsl --status
-wsl --list --verbose
-```
-
-If Ubuntu first-run setup appears, create a Linux username and password. Linux password input may not display characters; this is normal. Verify the distribution version is WSL 2 before proceeding.
+Previous Linux Files & Permissions mini-exam: **8/8 correct**. A new quiz with different questions has been presented; its answers are not yet submitted and are not scored.
 
 ## Next steps
 
-1. Restart Windows.
-2. Verify WSL status and installed distributions.
-3. Complete Ubuntu first-run setup if prompted.
-4. Learn and practice `pwd`, `ls`, `whoami`, `uname -a`, and `cd`.
-5. Complete remaining Linux lab tasks and the Lesson 03 final practical exam.
+1. Complete the newly presented Linux Files & Permissions quiz and review the result.
+2. Practice `mkdir`, creating a test file, reading permissions with `ls -l`, and changing permissions with `chmod` in a dedicated directory under the user's home folder.
+3. Complete the Lesson 03 final practical exam.
 
-Do not mark Lesson 03 complete until its Linux lab and final assessment are passed.
+Do not mark Lesson 03 complete until the Linux lab and final assessment are passed.
