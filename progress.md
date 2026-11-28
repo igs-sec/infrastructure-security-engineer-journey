@@ -1,6 +1,6 @@
 # Learning Progress
 
-_Last updated: 2026-11-23_
+_Last updated: 2026-11-28_
 
 ## Learning profile
 
@@ -14,15 +14,17 @@ _Last updated: 2026-11-23_
 ## Current environment
 
 - Laptop: ASUS VivoBook X512UA
-- OS: Windows 11 Pro, 64-bit
+- OS: Windows 11 Pro, 64-bit; winver reports version 26H2, OS build 26300.9974
 - CPU: Intel Core i5-8250U
 - RAM: 8 GB
 - Storage: 256 GB SSD
 - Virtualization: firmware virtualization support and SLAT confirmed
+- WSL installation: WSL package 3.0.5 installed; VirtualMachinePlatform enabled successfully. A system restart is pending. Ubuntu installation/first launch and WSL 2 verification are not yet confirmed.
 
 ### Lab constraints
 
 - Begin with Windows built-in tools and lightweight exercises.
+- Use WSL/Ubuntu for introductory Linux labs after reboot and verification.
 - Run one lightweight virtual machine at a time where practical.
 - Keep enough free SSD space for the OS and lab files.
 - Consider a RAM upgrade only after checking the exact installed memory modules and device compatibility.
@@ -69,7 +71,7 @@ Topics to reinforce over time:
 - **Status:** PASSED
 - **Knowledge checks:** 3/3 on CPU/RAM/storage; 5/5 on motherboard/NIC/ECC/RAID/Secure Boot.
 - **Hands-on lab:** completed — motherboard, network adapters, and physical storage inspected with PowerShell.
-- **Final practical exam:** 5/5 (all five scenarios answered correctly).
+- **Final practical exam:** 5/5.
 
 Sanitized observations:
 - Motherboard: ASUSTeK COMPUTER INC., X512UA, version 1.0.
@@ -80,13 +82,41 @@ Sanitized observations:
 
 Topics covered: CPU, cores/threads, RAM and volatile memory, HDD vs SSD, motherboard, NIC, IP vs MAC, physical vs virtual interfaces, ECC RAM, RAID, redundant power, remote management, physical security, BitLocker, Secure Boot, TPM, and firmware security.
 
-**Final practical exam: PASSED — 5/5.** All five scenarios were answered correctly.
+#### Lesson 03 — Operating Systems Fundamentals
+
+- **Status:** IN PROGRESS
+- **Knowledge check:** 5/5.
+- **Windows PowerShell lab:** completed.
+- **Concept review:** 3/3 correct.
+- **Linux/WSL lab:** setup in progress; restart pending.
+
+Topics covered so far:
+- Operating System (OS) and its role between hardware, applications, and users.
+- Process Management, Memory Management, File System Management, Device Management, User & Permission Management.
+- Process, Process ID (PID), and Service distinctions.
+- Windows vs Linux: common uses and overlapping roles.
+- Basic security risks: malware, privilege escalation, unauthorized access, misconfiguration, and unpatched vulnerabilities.
+- PowerShell discovery: `Get-ComputerInfo`, `Get-Process`, and `Get-Service`.
+
+Lab observations:
+- `Get-ComputerInfo` returned WindowsProductName = Windows 10 Pro, WindowsVersion = 2009, OsBuildNumber = 26300. The separate `winver` dialog reported Windows version 26H2, OS build 26300.9974. Treat the `winver` result as the current version/build reference; the differing product-name field needs no remediation at this stage.
+- `Get-Process` listed Windows/ASUS processes. The CPU column is cumulative processor time in seconds, not a live CPU percentage.
+- `Get-Service` showed both Running and Stopped services. A Stopped service is not automatically a fault; some services start only when needed.
+- Learner correctly explained that an unfamiliar process must be investigated before classifying it as malware, that a stopped service is not necessarily a problem, and that a process differs from a service.
+
+WSL setup:
+- Ran `wsl --status`: WSL was not installed at that time.
+- Ran `wsl --install -d Ubuntu`.
+- WSL package 3.0.5 installation completed successfully.
+- Windows feature VirtualMachinePlatform was enabled successfully.
+- Windows requested a restart for changes to take effect.
+- **Next action after restart:** run `wsl --status` and `wsl --list --verbose`; complete Ubuntu first-launch setup if prompted; verify the distribution is using WSL 2. Do not mark Ubuntu as installed/ready until verified.
 
 ## Roadmap
 
 | Stage | Focus | Status |
 |---|---|---|
-| 1 | IT Infrastructure Fundamentals | In progress — Lesson 01 and Lesson 02 passed |
+| 1 | IT Infrastructure Fundamentals | In progress — Lessons 01 and 02 passed; Lesson 03 in progress |
 | 2 | System & Infrastructure Administration: Linux, Windows Server, AD, DNS, firewalls | Not started |
 | 3 | Cybersecurity: fundamentals, hardening, IAM, vulnerabilities, SIEM | Not started |
 | 4 | Programming & Automation: Python, Bash, PowerShell, Git/GitHub | Not started |
@@ -94,18 +124,14 @@ Topics covered: CPU, cores/threads, RAM and volatile memory, HDD vs SSD, motherb
 | 6 | DevSecOps: SAST, DAST, SCA, container/Kubernetes security, secrets management | Not started |
 | 7 | Enterprise Security & Career Preparation | Not started |
 
-## Next lesson
+## Next action
 
-**Module 1 — Lesson 03: Operating Systems Fundamentals**
-
-Planned topics:
-- CPU — Central Processing Unit
-- RAM — Random Access Memory
-- HDD and SSD storage
-- Motherboard
-- NIC — Network Interface Card
-- Hardware roles in servers and endpoints
-- Hardware-related security considerations
+Resume **Module 1 — Lesson 03: Operating Systems Fundamentals** after restarting the computer:
+1. Verify WSL with `wsl --status`.
+2. Verify distributions with `wsl --list --verbose`.
+3. Finish Ubuntu first-run setup if required.
+4. Verify WSL 2, then begin basic Linux terminal commands: `pwd`, `ls`, `whoami`, `uname -a`, and `cd`.
+5. Continue the lesson's Linux lab and final assessment. Do not advance to Lesson 04 until Lesson 03 is passed.
 
 ## Weekly study rhythm
 
@@ -125,6 +151,6 @@ A sustainable target is 8–10 hours per week:
 
 ## Continuation instructions
 
-When continuing this journey, read this file and the latest lesson notes first. Resume at **Module 1, Lesson 03 — Operating Systems Fundamentals**. Keep the beginner-friendly pace, explain technical English terms in Russian, assign practical exercises, and assess understanding before advancing.
+When continuing this journey, read this file and the latest lesson notes first. Resume at **Module 1, Lesson 03 — Operating Systems Fundamentals**, specifically WSL/Ubuntu verification after the pending restart. Keep the beginner-friendly pace, explain technical English terms in Russian, assign practical exercises, and assess understanding before advancing.
 
 Do not claim professional seniority based on course completion alone; professional level also requires sustained real-world engineering experience.
